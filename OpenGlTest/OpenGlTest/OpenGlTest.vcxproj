@@ -66,8 +66,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Shook\Documents\Visual Studio 2013\Projects\OpenGlTest\OpenGlTest\Dependencies\FreeGlut;C:\Users\Shook\Documents\Visual Studio 2013\Projects\OpenGlTest\OpenGlTest\Dependencies\Glew;C:\Users\Shook\Documents\Visual Studio 2013\Projects\OpenGlTest\OpenGlTest\Dependencies\Glfw;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Shook\Documents\Visual Studio 2013\Projects\OpenGlTest\OpenGlTest\Dependencies\Glfw;C:\Users\Shook\Documents\Visual Studio 2013\Projects\OpenGlTest\OpenGlTest\Dependencies\Glew;C:\Users\Shook\Documents\Visual Studio 2013\Projects\OpenGlTest\OpenGlTest\Dependencies\FreeGlut;$(LibraryPath)</LibraryPath>
+    <IncludePath>Dependencies\FreeGlut;Dependencies\Glew;Dependencies\Glfw;$(IncludePath)</IncludePath>
+    <LibraryPath>Dependencies\Glfw;Dependencies\Glew;Dependencies\FreeGlut;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -89,7 +89,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Shook\Documents\Visual Studio 2013\Projects\OpenGlTest\OpenGlTest\Dependencies\Glew;C:\Users\Shook\Documents\Visual Studio 2013\Projects\OpenGlTest\OpenGlTest\Dependencies\FreeGlut;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>Dependencies\Glew;Dependencies\FreeGlut;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>freeglut.lib;glew32s.lib;opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>

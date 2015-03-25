@@ -1,13 +1,13 @@
-﻿Build started 3/24/2015 11:09:08 PM.
-     1>Project "c:\Users\Shook\documents\visual studio 2013\Projects\OpenGlTest\OpenGlTest\OpenGlTest.vcxproj" on node 2 (Build target(s)).
+﻿Build started 3/24/2015 11:16:53 PM.
+     1>Project "C:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\OpenGlTest.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Main.cpp
          Main.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\shook\documents\visual studio 2013\Projects\OpenGlTest\x64\Debug\OpenGlTest.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Shook\Documents\Visual Studio 2013\Projects\OpenGlTest\OpenGlTest\Dependencies\Glew" /LIBPATH:"C:\Users\Shook\Documents\Visual Studio 2013\Projects\OpenGlTest\OpenGlTest\Dependencies\FreeGlut" freeglut.lib glew32s.lib opengl32.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"c:\users\shook\documents\visual studio 2013\Projects\OpenGlTest\x64\Debug\OpenGlTest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\shook\documents\visual studio 2013\Projects\OpenGlTest\x64\Debug\OpenGlTest.lib" /MACHINE:X64 x64\Debug\Main.obj
-         OpenGlTest.vcxproj -> c:\users\shook\documents\visual studio 2013\Projects\OpenGlTest\x64\Debug\OpenGlTest.exe
-     1>Done Building Project "c:\Users\Shook\documents\visual studio 2013\Projects\OpenGlTest\OpenGlTest\OpenGlTest.vcxproj" (Build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\x64\Debug\OpenGlTest.exe" /INCREMENTAL /NOLOGO /LIBPATH:Dependencies\Glew /LIBPATH:Dependencies\FreeGlut freeglut.lib glew32s.lib opengl32.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\x64\Debug\OpenGlTest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\x64\Debug\OpenGlTest.lib" /MACHINE:X64 x64\Debug\Main.obj
+         OpenGlTest.vcxproj -> C:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\x64\Debug\OpenGlTest.exe
+     1>Done Building Project "C:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\OpenGlTest.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.07
+Time Elapsed 00:00:01.12
