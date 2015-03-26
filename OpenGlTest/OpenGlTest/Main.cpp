@@ -14,9 +14,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
+#include "gl_helper.hpp"
 #include "glew_helper.hpp"
 #include "glfw_helper.hpp"
+#include "vertex_data.hpp"
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -52,6 +56,16 @@ int main()
    add_call_backs(glfw, window);
 
    set_up_glew(WIDTH, HEIGHT);
+
+   set_up_and_send_buffer_data(vertices, sizeof(vertices), GL_STATIC_DRAW);
+
+   GLuint vertex_shader = set_up_shader_from_file("shader.txt", GL_VERTEX_SHADER);
+   GLuint frag_shader = set_up_shader_from_file("example.frag", GL_FRAGMENT_SHADER);
+
+   compile_shaders(2, vertex_shader, frag_shader);
+
+   delete_shader(vertex_shader);
+   delete_shader(frag_shader);
 
    while (!glfwWindowShouldClose(window))
    {

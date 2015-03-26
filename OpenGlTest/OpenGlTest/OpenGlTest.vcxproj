@@ -128,6 +128,14 @@
   <ItemGroup>
     <ClInclude Include="glew_helper.hpp" />
     <ClInclude Include="glfw_helper.hpp" />
+    <ClInclude Include="gl_helper.hpp" />
+    <ClInclude Include="vertex_data.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="shader.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="example.frag" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
