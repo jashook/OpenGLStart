@@ -57,15 +57,20 @@ int main()
 
    set_up_glew(WIDTH, HEIGHT);
 
-   set_up_and_send_buffer_data(vertices, sizeof(vertices), GL_STATIC_DRAW);
+   GLuint VAO = set_up_and_send_buffer_data(vertices, sizeof(vertices), GL_STATIC_DRAW);
 
    GLuint vertex_shader = set_up_shader_from_file("shader.txt", GL_VERTEX_SHADER);
    GLuint frag_shader = set_up_shader_from_file("example.frag", GL_FRAGMENT_SHADER);
 
-   compile_shaders(2, vertex_shader, frag_shader);
+   GLuint shader_program = compile_shaders(2, vertex_shader, frag_shader);
 
    delete_shader(vertex_shader);
    delete_shader(frag_shader);
+
+   // Set up the Vertex Atribute pointer to skip every third data, because we are using
+   // x y and z
+   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+   glEnableVertexAttribArray(0);
 
    while (!glfwWindowShouldClose(window))
    {
@@ -73,6 +78,11 @@ int main()
 
       glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
       glClear(GL_COLOR_BUFFER_BIT);
+
+      glUseProgram(shader_program);
+      glBindVertexArray(VAO);
+      glDrawArrays(GL_TRIANGLES, 0, 3);
+      glBindVertexArray(0);
 
       glfwSwapBuffers(window);
    }

@@ -31,7 +31,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-void compile_shaders(int count, ...)
+GLuint compile_shaders(int count, ...)
 {
    va_list arg_ptr;
 
@@ -58,7 +58,7 @@ void compile_shaders(int count, ...)
       throw std::runtime_error(std::string("[gl_helper.hpp::set_up_shader()::58] - Linking of shader failed: ") + info_log);
    }
 
-   glUseProgram(shader_program);
+   return shader_program;
 
 }
 
@@ -67,14 +67,20 @@ void delete_shader(GLuint shader)
    glDeleteShader(shader);
 }
 
-template<typename __Type> void set_up_and_send_buffer_data(__Type& data, size_t size, GLenum usage)
+template<typename __Type> GLuint set_up_and_send_buffer_data(__Type& data, size_t size, GLenum usage)
 {
    GLuint VBO;
+   GLuint VAO;
 
+   glGenVertexArrays(1, &VAO);
    glGenBuffers(1, &VBO);
+
+   glBindVertexArray(VAO);
 
    glBindBuffer(GL_ARRAY_BUFFER, VBO);
    glBufferData(GL_ARRAY_BUFFER, size, data, usage);
+
+   return VAO;
 }
 
 GLuint set_up_shader(const char* vertex_shader_source, GLenum shader_type)
