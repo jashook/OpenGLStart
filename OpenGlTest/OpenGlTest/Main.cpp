@@ -47,6 +47,8 @@ int main()
    glfw_helper glfw(GL_FALSE);
 
    GLFWwindow* window = glfw.create_window(WIDTH, HEIGHT, "OpenGl Example");
+   glfw.set_window_context(window);
+
    add_call_backs(glfw, window);
 
    set_up_glew(WIDTH, HEIGHT);

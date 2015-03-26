@@ -43,6 +43,7 @@ class glfw_helper
    void add_call_back(GLFWwindow* window, void(*passed_function)(GLFWwindow* window, int key, int scan_code, int action, int mode)) { _add_call_back(window, passed_function); }
       GLFWwindow* create_window(int width, int height, const char* const window_name) { return _create_window(width, height, window_name); }
       void set_up_glfw(int resizable) { _set_up_glfw(resizable); }
+      void set_window_context(GLFWwindow* window) { _set_window_context(window); }
       void tear_down() { _tear_down(); }
 
    private:

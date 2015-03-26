@@ -37,7 +37,7 @@ void set_up_glew(int height, int width)
 
    if (err != GLEW_OK)
    {
-      throw std::runtime_error("[glew_helper.hpp::set_up_glew()::40] - Unable to set up glew");
+      throw std::runtime_error("[glew_helper.hpp::set_up_glew()::40] - Unable to set up glew: ");
    }
 
    glViewport(0, 0, width, height);
