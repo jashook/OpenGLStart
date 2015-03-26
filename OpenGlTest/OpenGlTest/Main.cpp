@@ -1,50 +1,55 @@
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+//
+// Author: Jarret Shook
+//
+// Module: Main.cpp
+//
+// Timeperiod: 24-March-15: Version 1.0: Created
+// Timeperiod: 25-March-15: Version 1.0: Last Updated
+//
+// Notes:
+//
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 #include <iostream>
 
-#define GLEW_STATIC
-#include <GL/glew.h>
+#include "glew_helper.hpp"
+#include "glfw_helper.hpp"
 
-#include <glfw3.h>
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
-int main()
+#define WIDTH 800
+#define HEIGHT 600
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+void add_call_backs(glfw_helper& glfw, GLFWwindow* window)
 {
-   glfwInit();
-
-   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-   glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-
-   GLFWwindow* window = glfwCreateWindow(800, 600, "OpenGl Example", nullptr, nullptr);
-
-   glfwMakeContextCurrent(window);
-
-   if (window == NULL)
-   {
-      std::cout << "Failed to create GLFW windows" << std::endl;
-
-      glfwTerminate();
-
-      return -1;
-   }
-
-   glewExperimental = GL_TRUE;
-   GLenum err = glewInit();
-
-   if (err != GLEW_OK)
-   {
-      std::cout << "Failed to initialize GLEW: " << glewGetErrorString(err) << std::endl;
-      return -1;
-   }
-
-   glViewport(0, 0, 800, 600);
-
-   glfwSetKeyCallback(window, [](GLFWwindow* window, int key, int scancode, int action, int mode)
+   glfw.add_call_back(window, [] (GLFWwindow* window, int key, int scancode, int action, int mode)
    {
       // When a user presses the escape key, we set the WindowShouldClose property to true, 
       // closing the application
       if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
          glfwSetWindowShouldClose(window, GL_TRUE);
    });
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+int main()
+{
+   // Set up and tear down automatically done.
+   glfw_helper glfw(GL_FALSE);
+
+   GLFWwindow* window = glfw.create_window(WIDTH, HEIGHT, "OpenGl Example");
+   add_call_backs(glfw, window);
+
+   set_up_glew(WIDTH, HEIGHT);
 
    while (!glfwWindowShouldClose(window))
    {
@@ -52,7 +57,9 @@ int main()
       glfwSwapBuffers(window);
    }
 
-   glfwTerminate();
-
    return 0;
 }
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
