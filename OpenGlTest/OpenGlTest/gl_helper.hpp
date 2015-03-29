@@ -37,8 +37,7 @@ GLuint compile_shaders(int count, ...)
 
    va_start(arg_ptr, count);
 
-   GLuint shader_program;
-   shader_program = glCreateProgram();
+   GLuint shader_program = glCreateProgram();
 
    for (int index = 0; index < count; ++index)
    {
@@ -50,13 +49,22 @@ GLuint compile_shaders(int count, ...)
    glLinkProgram(shader_program);
 
    GLint success;
-   GLchar info_log[512];
+   static GLchar info_log[512];
    glGetProgramiv(shader_program, GL_LINK_STATUS, &success);
    if (!success) {
       glGetProgramInfoLog(shader_program, 512, NULL, info_log);
       
       throw std::runtime_error(std::string("[gl_helper.hpp::set_up_shader()::58] - Linking of shader failed: ") + info_log);
    }
+
+   va_start(arg_ptr, count);
+
+   for (int index = 0; index < count; ++index)
+   {
+      glDeleteShader(va_arg(arg_ptr, GLuint));
+   }
+
+   va_end(arg_ptr);
 
    return shader_program;
 
@@ -85,14 +93,13 @@ template<typename __Type> GLuint set_up_and_send_buffer_data(__Type& data, size_
 
 GLuint set_up_shader(const char* vertex_shader_source, GLenum shader_type)
 {
-   GLuint shader;
-   shader = glCreateShader(shader_type);
+   GLuint shader = glCreateShader(shader_type);
 
    glShaderSource(shader, 1, (const char**)&vertex_shader_source, NULL);
    glCompileShader(shader);
 
    GLint success;
-   GLchar info_log[512];
+   static GLchar info_log[512];
    glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
 
    if (!success)

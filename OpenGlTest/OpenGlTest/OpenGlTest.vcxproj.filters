@@ -35,14 +35,17 @@
     <ClInclude Include="gl_helper.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="shader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="shader.txt">
+    <Text Include="shader.glsl">
       <Filter>Shaders</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <None Include="example.frag">
+    <None Include="color.frag">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

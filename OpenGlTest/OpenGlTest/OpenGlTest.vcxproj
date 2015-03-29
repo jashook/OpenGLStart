@@ -66,8 +66,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>Dependencies\FreeGlut;Dependencies\Glew;Dependencies\Glfw;$(IncludePath)</IncludePath>
-    <LibraryPath>Dependencies\Glfw;Dependencies\Glew;Dependencies\FreeGlut;$(LibraryPath)</LibraryPath>
+    <IncludePath>Dependencies;Dependencies\glm;Dependencies\glfw;Dependencies\glew;$(IncludePath)</IncludePath>
+    <LibraryPath>Dependencies\glm;Dependencies\Glfw;Dependencies\Glew;Dependencies\FreeGlut;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -86,6 +86,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\Dependencies;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -129,13 +130,14 @@
     <ClInclude Include="glew_helper.hpp" />
     <ClInclude Include="glfw_helper.hpp" />
     <ClInclude Include="gl_helper.hpp" />
+    <ClInclude Include="shader.hpp" />
     <ClInclude Include="vertex_data.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="shader.txt" />
+    <Text Include="shader.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="example.frag" />
+    <None Include="color.frag" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
