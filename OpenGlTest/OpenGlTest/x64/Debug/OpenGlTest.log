@@ -1,11 +1,17 @@
-﻿Build started 4/1/2015 7:06:26 PM.
+﻿Build started 4/1/2015 10:34:32 PM.
      1>Project "C:\Users\Andrew\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\OpenGlTest.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\Dependencies /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Main.cpp
+         C:\Program Files (x86)\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Andrew\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\Dependencies /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Main.cpp
          Main.cpp
-     1>Main.cpp(20): fatal error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+     1>Main.cpp(97): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Main.cpp(106): error C3867: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str': function call missing argument list; use '&std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str' to create a pointer to member
+     1>Main.cpp(111): error C3867: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str': function call missing argument list; use '&std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str' to create a pointer to member
+     1>Main.cpp(189): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>Main.cpp(201): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>Main.cpp(213): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>Main.cpp(225): warning C4305: '-=' : truncation from 'double' to 'float'
      1>Done Building Project "C:\Users\Andrew\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\OpenGlTest.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:00.90
+Time Elapsed 00:00:00.39
