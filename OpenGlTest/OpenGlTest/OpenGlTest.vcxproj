@@ -66,8 +66,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>Dependencies;Dependencies\glm;Dependencies\glfw;Dependencies\glew;$(IncludePath)</IncludePath>
-    <LibraryPath>Dependencies\glm;Dependencies\Glfw;Dependencies\Glew;Dependencies\FreeGlut;$(LibraryPath)</LibraryPath>
+    <IncludePath>Dependencies;Dependencies\glm;Dependencies\glfw;Dependencies\Soil;Dependencies\glew;$(IncludePath)</IncludePath>
+    <LibraryPath>Dependencies\glm;Dependencies\Glfw;Dependencies\Glew;Dependencies\Soil;Dependencies\FreeGlut;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -86,12 +86,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\Dependencies;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Andrew\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\Dependencies;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>Dependencies\Glew;Dependencies\FreeGlut;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>freeglut.lib;glew32s.lib;opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Dependencies\Glew;Dependencies\Soil;Dependencies\FreeGlut;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freeglut.lib;glew32s.lib;opengl32.lib;glfw3.lib;libSOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
