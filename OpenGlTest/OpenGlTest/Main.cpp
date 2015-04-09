@@ -13,6 +13,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <mutex>
@@ -22,6 +23,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <Soil/SOIL.h>
 
 // GLEW
 #define GLEW_STATIC
@@ -88,6 +90,58 @@ void add_call_backs(glfw_helper& glfw, GLFWwindow* window)
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+
+//Retrieves the filename from the settings file?
+std::string retrieve_file_name()
+{
+   return NULL;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+GLuint load_texture_from_file(std::string filename)
+{
+   //strip extension
+   std::string extension;
+   int delimiter_index = filename.find_last_of('.');
+   //if a '.' was found
+   if (delimiter_index != std::string::npos)
+   {
+      //get extension substring
+      extension = filename.substr(delimiter_index + 1);
+      //convert to uppercase
+      std::transform(extension.begin(), extension.end(), extension.begin(), ::toupper);
+      //get c_string
+      const char* ext = extension.c_str;
+      //check filetype
+      if (strcmp(ext, "JPG") || strcmp(ext, "BMP") || strcmp(ext, "PNG"))
+      {
+         //load .jpg
+         GLuint tex_2D = SOIL_load_OGL_texture(filename.c_str, SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID,
+                                               SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y |
+                                               SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT);
+         if (tex_2D == 0)
+         {
+            //THERE WAS AN ERROR - do something
+         }
+         else
+            return tex_2D;
+      }
+      else
+      {
+         //disagree.
+         //throw an error? prompt the user? be displeased.
+         //(tell the user to check the input file type)
+      }
+   }
+
+   return NULL;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 
 int main()
 {
