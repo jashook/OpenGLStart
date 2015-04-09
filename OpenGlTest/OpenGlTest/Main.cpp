@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <fstream>
+#include <mutex>
+#include <thread>
 #include <sstream>
 
 #include <glm/glm.hpp>
@@ -32,6 +34,8 @@
 #include "gl_helper.hpp"
 #include "glew_helper.hpp"
 #include "glfw_helper.hpp"
+#include "ring_buffer.hpp"
+#include "server.hpp"
 #include "shader.hpp"
 #include "vertex_data.hpp"
 
@@ -45,6 +49,12 @@
 
 bool g_keys[1024] = { 0 };
 float g_location[2] = { 0.0 };
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+ev10::eIIe::ring_buffer<char, 1024> g_ring_buffer;
+std::mutex g_lock;
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -87,6 +97,18 @@ int main()
    GLFWwindow* window = glfw.create_window(WIDTH, HEIGHT, "OpenGl Example");
    glfw.set_window_context(window);
 
+   std::thread* server_thread = new std::thread([] ()
+   {
+      ev9::server<false>* server = new ev9::server<false>([] (std::vector<char>& input, std::vector<char>& output)
+      {
+         std::lock_guard<std::mutex> lock(g_lock);
+
+         g_ring_buffer.push(input.back());
+      });
+
+      server->start();
+   });
+
    add_call_backs(glfw, window);
 
    set_up_glew(WIDTH, HEIGHT);
@@ -128,6 +150,22 @@ int main()
 
       shader.use_program();
 
+      unsigned char direction = 0;
+
+      {
+         std::lock_guard<std::mutex> lock(g_lock);
+
+         if (!g_ring_buffer.empty())
+         {
+            direction = g_ring_buffer.pop();
+         }
+      }
+
+      if (direction > 251 && direction < 256)
+      {
+         g_keys[direction] = true;
+      }
+
       // Up
       if (g_keys[GLFW_KEY_UP])
       {
@@ -138,6 +176,8 @@ int main()
 
          GLint transform_location = glGetUniformLocation(shader.get_program(), "transform");
          glUniformMatrix4fv(transform_location, 1, GL_FALSE, glm::value_ptr(transform));
+
+         g_keys[GLFW_KEY_UP] = false;
       }
 
       // Down
@@ -150,30 +190,36 @@ int main()
 
          GLint transform_location = glGetUniformLocation(shader.get_program(), "transform");
          glUniformMatrix4fv(transform_location, 1, GL_FALSE, glm::value_ptr(transform));
+
+         g_keys[GLFW_KEY_DOWN] = false;
       }
 
       // Right
-      if (g_keys[GLFW_KEY_RIGHT])
+      if (g_keys[252])
       {
          g_location[0] += DELTA;
 
          glm::mat4 transform;
-         transform = glm::translate(transform, glm::vec3(g_location[0], g_location[1], 0.0f));
+         transform = glm::translate(transform, glm::vec3(g_location[0], g_location[1], 0.1f));
 
          GLint transform_location = glGetUniformLocation(shader.get_program(), "transform");
          glUniformMatrix4fv(transform_location, 1, GL_FALSE, glm::value_ptr(transform));
+
+         g_keys[252] = false;
       }
 
       // Left
-      if (g_keys[GLFW_KEY_LEFT])
+      if (g_keys[253])
       {
          g_location[0] -= DELTA;
 
          glm::mat4 transform;
-         transform = glm::translate(transform, glm::vec3(g_location[0], g_location[1], 0.0f));
+         transform = glm::translate(transform, glm::vec3(g_location[0], g_location[1], 0.1f));
 
          GLint transform_location = glGetUniformLocation(shader.get_program(), "transform");
          glUniformMatrix4fv(transform_location, 1, GL_FALSE, glm::value_ptr(transform));
+
+         g_keys[253] = false;
       }
 
       else

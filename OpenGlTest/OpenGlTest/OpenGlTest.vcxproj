@@ -130,7 +130,10 @@
     <ClInclude Include="glew_helper.hpp" />
     <ClInclude Include="glfw_helper.hpp" />
     <ClInclude Include="gl_helper.hpp" />
+    <ClInclude Include="ring_buffer.hpp" />
+    <ClInclude Include="server.hpp" />
     <ClInclude Include="shader.hpp" />
+    <ClInclude Include="socket.hpp" />
     <ClInclude Include="vertex_data.hpp" />
   </ItemGroup>
   <ItemGroup>
