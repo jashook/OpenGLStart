@@ -47,7 +47,7 @@
 #define WIDTH 1920
 #define HEIGHT 1080
 
-#define DELTA .0005
+#define DELTA .005
 
 bool g_keys[1024] = { 0 };
 float g_location[2] = { 0.0 };
@@ -99,7 +99,7 @@ std::string retrieve_file_name()
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
+/*
 GLuint load_texture_from_file(std::string filename)
 {
    //strip extension
@@ -137,7 +137,7 @@ GLuint load_texture_from_file(std::string filename)
    }
 
    return NULL;
-}
+}*/
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -254,7 +254,7 @@ int main()
          g_location[0] += DELTA;
 
          glm::mat4 transform;
-         transform = glm::translate(transform, glm::vec3(g_location[0], g_location[1], 0.1f));
+         transform = glm::translate(transform, glm::vec3(g_location[0], g_location[1], 0.0f));
 
          GLint transform_location = glGetUniformLocation(shader.get_program(), "transform");
          glUniformMatrix4fv(transform_location, 1, GL_FALSE, glm::value_ptr(transform));
@@ -268,7 +268,7 @@ int main()
          g_location[0] -= DELTA;
 
          glm::mat4 transform;
-         transform = glm::translate(transform, glm::vec3(g_location[0], g_location[1], 0.1f));
+         transform = glm::translate(transform, glm::vec3(g_location[0], g_location[1], 0.0f));
 
          GLint transform_location = glGetUniformLocation(shader.get_program(), "transform");
          glUniformMatrix4fv(transform_location, 1, GL_FALSE, glm::value_ptr(transform));
