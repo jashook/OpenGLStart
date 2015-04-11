@@ -21,7 +21,6 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include <Soil/SOIL.h>
 
 // GLEW
 #define GLEW_STATIC
@@ -109,9 +108,10 @@ GLuint load_texture_from_file(std::string filename)
       if (strcmp(ext, "JPG") || strcmp(ext, "BMP") || strcmp(ext, "PNG"))
       {
          //load .jpg
-         GLuint tex_2D = SOIL_load_OGL_texture(filename.c_str(), SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID,
+         /*GLuint tex_2D = SOIL_load_OGL_texture(filename.c_str(), SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID,
                                                SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y |
-                                               SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT);
+                                               SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT);*/
+         auto tex_2D = 0;
          if (tex_2D == 0)
          {
             //THERE WAS AN ERROR - do something
