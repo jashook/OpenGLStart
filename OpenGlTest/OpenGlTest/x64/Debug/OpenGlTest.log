@@ -1,17 +1,21 @@
-﻿Build started 4/1/2015 10:34:32 PM.
-     1>Project "C:\Users\Andrew\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\OpenGlTest.vcxproj" on node 2 (Build target(s)).
+﻿Build started 4/9/2015 10:59:33 AM.
+     1>Project "C:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\OpenGlTest.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Andrew\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\Dependencies /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Andrew\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\Dependencies /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Main.cpp
          Main.cpp
      1>Main.cpp(97): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
-     1>Main.cpp(106): error C3867: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str': function call missing argument list; use '&std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str' to create a pointer to member
-     1>Main.cpp(111): error C3867: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str': function call missing argument list; use '&std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str' to create a pointer to member
      1>Main.cpp(189): warning C4305: '+=' : truncation from 'double' to 'float'
      1>Main.cpp(201): warning C4305: '-=' : truncation from 'double' to 'float'
      1>Main.cpp(213): warning C4305: '+=' : truncation from 'double' to 'float'
      1>Main.cpp(225): warning C4305: '-=' : truncation from 'double' to 'float'
-     1>Done Building Project "C:\Users\Andrew\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\OpenGlTest.vcxproj" (Build target(s)) -- FAILED.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\x64\Debug\OpenGlTest.exe" /INCREMENTAL /NOLOGO /LIBPATH:Dependencies\Glew /LIBPATH:Dependencies\Soil /LIBPATH:Dependencies\FreeGlut freeglut.lib glew32s.lib opengl32.lib glfw3.lib libSOIL.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\x64\Debug\OpenGlTest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\x64\Debug\OpenGlTest.lib" /MACHINE:X64 x64\Debug\Main.obj
+     1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>Main.obj : error LNK2019: unresolved external symbol SOIL_load_OGL_texture referenced in function "unsigned int __cdecl load_texture_from_file(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?load_texture_from_file@@YAIV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+     1>C:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\x64\Debug\OpenGlTest.exe : fatal error LNK1120: 1 unresolved externals
+     1>Done Building Project "C:\Users\Shook\Source\Repos\OpenGLStart\OpenGlTest\OpenGlTest\OpenGlTest.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:00.39
+Time Elapsed 00:00:01.63
